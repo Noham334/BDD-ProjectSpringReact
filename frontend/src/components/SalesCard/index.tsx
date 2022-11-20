@@ -19,7 +19,6 @@ function SalesCard() {
 	useEffect(() => {
 		const datemin = minDate.toISOString().slice(0, 10);
 		const datemax = maxDate.toISOString().slice(0, 10);
-		console.log(datemin);
 
 		axios
 			.get(`${BASE_URL}/sales/?minDate=${datemin}&maxDate=${datemax}`)
@@ -30,7 +29,7 @@ function SalesCard() {
 
 	return (
 		<div className="dsmeta-card">
-			<h2 className="dsmeta-sales-title">Vendas</h2>
+			<h2 className="dsmeta-sales-title">Ventas</h2>
 			<div>
 				<div className="dsmeta-form-control-container">
 					<DatePicker
@@ -77,7 +76,7 @@ function SalesCard() {
 									<td>$B {sale.amount.toFixed(2)}</td>
 									<td>
 										<div className="dsmeta-red-btn-container">
-											<NotificationButton />
+											<NotificationButton saleId={sale.id} />
 										</div>
 									</td>
 								</tr>
